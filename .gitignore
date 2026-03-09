@@ -1,0 +1,49 @@
+# Unity generated folders
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+UserSettings/
+
+# Memory captures
+MemoryCaptures/
+
+# Asset meta data should stay, but ignore cache
+*.pidb
+*.booproj
+*.svd
+*.pdb
+
+# Visual Studio / VS Code
+.vs/
+.vscode/
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Unity cache
+sysinfo.txt
+
+# Crash reports
+crashlytics-build.properties
+
+# Android / Gradle
+.gradle/
+*.apk
+*.aab
+
+# Mac build files
+*.app
+
+# Logs
+*.log
