@@ -5,9 +5,21 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/FishingScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 316d3d11db896fb49a65232fc1343c06
+  - enabled: 1
+    path: Assets/Scenes/LakeHouse.unity
+    guid: 6eb4b82487aba7e45b837c1c697f79b7
+  - enabled: 1
+    path: Assets/Scenes/Sea.unity
+    guid: 93600bf7d1cc0cd4b9bdc4d4d25f7869
+  - enabled: 1
+    path: Assets/Scenes/Beach.unity
+    guid: 16460315885215e4792101fff0503da9
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: ed72be55522c8448bae8b0d66fa21adf, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
