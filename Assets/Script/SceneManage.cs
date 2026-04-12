@@ -3,6 +3,11 @@ using UnityEngine.SceneManagement;
 
 public class SceneManage : MonoBehaviour
 {
+    public void LoadMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+    
     public void LoadBeach()
     {
         SceneManager.LoadScene("Beach");

@@ -4,6 +4,8 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance;
 
+    public AudioSource sfxSource;
+
     private float masterVolume = 1f;
     private float sfxVolume = 1f;
 
@@ -26,6 +28,11 @@ public class AudioManager : MonoBehaviour
         AudioListener.volume = masterVolume; // GLOBAL
     }
 
+    public void PlayClick()
+    {
+        sfxSource.PlayOneShot(sfxSource.clip, sfxVolume);
+    }
+
     public void SetSFXVolume(float volume)
     {
         sfxVolume = volume;
@@ -34,5 +41,10 @@ public class AudioManager : MonoBehaviour
     public float GetSFXVolume()
     {
         return sfxVolume;
+    }
+
+    void Start()
+    {
+        GetComponent<AudioSource>().Play();
     }
 }
