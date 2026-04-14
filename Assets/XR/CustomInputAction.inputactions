@@ -1,0 +1,35 @@
+{
+    "version": 1,
+    "name": "CustomInputAction",
+    "maps": [
+        {
+            "name": "Menu",
+            "id": "00adadc0-7bac-4fc0-813d-8a7353a841cd",
+            "actions": [
+                {
+                    "name": "MenuPressed",
+                    "type": "Button",
+                    "id": "e79a65cf-ab4f-484c-bb7a-dd66f36e2cfb",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "33f89e99-98b3-4a78-bdd3-49092712af07",
+                    "path": "<XRController>{RightHand}/secondaryButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MenuPressed",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
