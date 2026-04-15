@@ -22,4 +22,11 @@ public class SceneManage : MonoBehaviour
     {
         SceneManager.LoadScene("LakeHouse");
     }
+
+    public void LoadFishpedia()
+    {
+        SceneManager.LoadScene("Underwater");
+    }
+
+    
 }

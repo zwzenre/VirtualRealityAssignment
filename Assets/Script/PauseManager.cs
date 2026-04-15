@@ -1,36 +1,51 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.XR;
+using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 
-public class PauseManager : MonoBehaviour
+public class PauseMenu : MonoBehaviour
 {
-    public GameObject pauseMenu;
+    public GameObject wristUI;
+    public bool activeWristUI = true;
 
-    private bool isPaused = false;
-    private bool wasPressedLastFrame = false;
-
-    void Update()
+    // Start is called before the first frame update
+    void Start()
     {
-        InputDevice rightHand = InputDevices.GetDeviceAtXRNode(XRNode.RightHand);
+        DisplayWristUI();
+    }
 
-        bool buttonPressed = false;
-
-        // A button on right controller
-        if (rightHand.TryGetFeatureValue(CommonUsages.primaryButton, out buttonPressed))
+    public void PauseButtonPressed(InputAction.CallbackContext context)
+    {
+        if (context.performed)
         {
-            if (buttonPressed && !wasPressedLastFrame)
-            {
-                TogglePause();
-            }
-
-            wasPressedLastFrame = buttonPressed;
+            DisplayWristUI();
         }
     }
 
-    public void TogglePause()
+    public void DisplayWristUI()
     {
-        isPaused = !isPaused;
+        if (activeWristUI)
+        {
+            wristUI.SetActive(false);
+            activeWristUI = false;
+            Time.timeScale = 1;
+        }
+        else if (!activeWristUI)
+        {
+            wristUI.SetActive(true);
+            activeWristUI = true;
+            Time.timeScale = 0;
+        }
+    }
 
-        pauseMenu.SetActive(isPaused);
-        Time.timeScale = isPaused ? 0f : 1f;
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void ExitGame()
+    {
+        Application.Quit();
     }
 }
