@@ -18,6 +18,7 @@ public class GameController : MonoBehaviour
     private float minWaitTime = 2f;
     private float maxWaitTime = 5f; 
     private float targetWaitTime;
+    private bool isReeling = false;
 
     enum FishingState
     {
@@ -35,24 +36,11 @@ public class GameController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && state == FishingState.Idle)
         {
-            rod.Cast();
-            visualTension = 0f;
-            state = FishingState.Waiting;
-            statusText.text = "Waiting for fish...";
-            audioSource.PlayOneShot(castSound);
-            targetWaitTime = Random.Range(minWaitTime, maxWaitTime);
-            waitTimer = 0f;
+            OnCastPressed();
         }
 
         if (state == FishingState.Waiting)
         {
-            //if (Input.GetKeyDown(KeyCode.F))
-            //{
-            //    state = FishingState.FishBite;
-            //    statusText.text = "Fish is biting!";
-            //    audioSource.PlayOneShot(biteSound);
-            //}
-
             waitTimer += Time.deltaTime;
 
             if (waitTimer >= targetWaitTime)
@@ -69,32 +57,30 @@ public class GameController : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.R))
             {
-                rod.Reel();
-                state = FishingState.Hooked;
-                statusText.text = "Hooked! Reel now!";
-                rod.SpawnFish();
-                breakTimer = 0f;
+                OnReelPressed();
             }
         }
 
         if (state == FishingState.Hooked)
         {
-            if (Input.GetKey(KeyCode.R))
+            if (isReeling)
             {
+                Debug.Log("Reeling...");
                 rod.Reel();
-                audioSource.PlayOneShot(reelSound);
+
+                if (!audioSource.isPlaying)
+                    audioSource.PlayOneShot(reelSound);
+            }
+            else
+            {
+                rod.RelaxLine();
             }
 
             float targetTension = rod.GetTension();
-
             visualTension = Mathf.Lerp(visualTension, targetTension, Time.deltaTime * 3f);
-
             tensionUI.UpdateTension(visualTension);
 
-            Debug.Log($"Tension: {visualTension:F2}");
-
             rod.SimulateFish();
-
             rod.line.material.color = Color.Lerp(Color.white, Color.red, visualTension);
 
             if (visualTension > 0.95f)
@@ -104,10 +90,7 @@ public class GameController : MonoBehaviour
                 if (breakTimer > 1f)
                 {
                     statusText.text = "Line broke!";
-                    rod.line.material.color = Color.white;
-                    rod.ResetCast();
-                    tensionUI.ResetBar();
-                    state = FishingState.Idle;
+                    ResetFishing();
                     return;
                 }
             }
@@ -118,13 +101,50 @@ public class GameController : MonoBehaviour
 
             if (Vector3.Distance(rod.rodTip.position, rod.GetHookPosition()) < 2.5f)
             {
-                visualTension = 0f;
-                rod.line.material.color = Color.white;
                 statusText.text = "Fish Caught!";
-                rod.ResetCast();
-                tensionUI.ResetBar();
-                state = FishingState.Idle;
+                ResetFishing();
             }
         }
+    }
+    public void OnCastPressed()
+    {
+        if (state != FishingState.Idle) return;
+
+        rod.Cast();
+        visualTension = 0f;
+        state = FishingState.Waiting;
+        statusText.text = "Waiting for fish...";
+        audioSource.PlayOneShot(castSound);
+
+        targetWaitTime = Random.Range(minWaitTime, maxWaitTime);
+        waitTimer = 0f;
+    }
+
+    public void OnReelPressed()
+    {
+        if (state == FishingState.FishBite)
+        {
+            rod.Reel();
+            state = FishingState.Hooked;
+            statusText.text = "Hooked! Reel now!";
+            rod.SpawnFish();
+            breakTimer = 0f;
+        }
+
+        isReeling = true;
+    }
+
+    public void OnReelReleased()
+    {
+        isReeling = false;
+    }
+
+    void ResetFishing()
+    {
+        visualTension = 0f;
+        rod.line.material.color = Color.white;
+        rod.ResetCast();
+        tensionUI.ResetBar();
+        state = FishingState.Idle;
     }
 }
