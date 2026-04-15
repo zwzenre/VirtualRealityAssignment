@@ -1381,6 +1381,7 @@ MonoBehaviour:
   tensionUI: {fileID: 660192857}
   rod: {fileID: 1763495866}
   statusText: {fileID: 2146813330}
+  caughtFish: []
   audioSource: {fileID: 949997134}
   castSound: {fileID: 8300000, guid: f570781222cbc3649906dc5dae5efb4a, type: 3}
   biteSound: {fileID: 8300000, guid: 40115a8bad97a954884fbac7653f4c96, type: 3}
@@ -2376,82 +2377,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3479067029596092956, guid: f8df6907c10416543a5bb733ad8b0be6, type: 3}
-      propertyPath: fishPrefabs.Array.size
-      value: 18
-      objectReference: {fileID: 0}
-    - target: {fileID: 3479067029596092956, guid: f8df6907c10416543a5bb733ad8b0be6, type: 3}
-      propertyPath: 'fishPrefabs.Array.data[0]'
-      value: 
-      objectReference: {fileID: 7660056815385157646, guid: 35b7195a6107d514e842806a72d31d57, type: 3}
-    - target: {fileID: 3479067029596092956, guid: f8df6907c10416543a5bb733ad8b0be6, type: 3}
-      propertyPath: 'fishPrefabs.Array.data[1]'
-      value: 
-      objectReference: {fileID: 1809855982420343196, guid: a20ffe8d10c78534cafd817b38517e05, type: 3}
-    - target: {fileID: 3479067029596092956, guid: f8df6907c10416543a5bb733ad8b0be6, type: 3}
-      propertyPath: 'fishPrefabs.Array.data[2]'
-      value: 
-      objectReference: {fileID: 8264218793534278510, guid: 5caeff36034ffba4ea451e4904348494, type: 3}
-    - target: {fileID: 3479067029596092956, guid: f8df6907c10416543a5bb733ad8b0be6, type: 3}
-      propertyPath: 'fishPrefabs.Array.data[3]'
-      value: 
-      objectReference: {fileID: 104517609856167801, guid: 94c015d94f6e5364e9b36b960bbe1b77, type: 3}
-    - target: {fileID: 3479067029596092956, guid: f8df6907c10416543a5bb733ad8b0be6, type: 3}
-      propertyPath: 'fishPrefabs.Array.data[4]'
-      value: 
-      objectReference: {fileID: 7770584863604633872, guid: 67de17aaa6711224f80123d9b1ef8cb7, type: 3}
-    - target: {fileID: 3479067029596092956, guid: f8df6907c10416543a5bb733ad8b0be6, type: 3}
-      propertyPath: 'fishPrefabs.Array.data[5]'
-      value: 
-      objectReference: {fileID: 2206852426022253465, guid: de500f6b90f89bc4c87a6585b2dea01a, type: 3}
-    - target: {fileID: 3479067029596092956, guid: f8df6907c10416543a5bb733ad8b0be6, type: 3}
-      propertyPath: 'fishPrefabs.Array.data[6]'
-      value: 
-      objectReference: {fileID: 1937588542411740048, guid: a05072560c3476b4cb8dddf22f697392, type: 3}
-    - target: {fileID: 3479067029596092956, guid: f8df6907c10416543a5bb733ad8b0be6, type: 3}
-      propertyPath: 'fishPrefabs.Array.data[7]'
-      value: 
-      objectReference: {fileID: 5925960515861282153, guid: 2fb93ff3c1250a74ca5f53a6bc162675, type: 3}
-    - target: {fileID: 3479067029596092956, guid: f8df6907c10416543a5bb733ad8b0be6, type: 3}
-      propertyPath: 'fishPrefabs.Array.data[8]'
-      value: 
-      objectReference: {fileID: 8848912004881509116, guid: 2aeb5c3a158bb9843b72617f4bb17afe, type: 3}
-    - target: {fileID: 3479067029596092956, guid: f8df6907c10416543a5bb733ad8b0be6, type: 3}
-      propertyPath: 'fishPrefabs.Array.data[9]'
-      value: 
-      objectReference: {fileID: 2576910639401555240, guid: 38453c08482feef46925c63d2e9e6598, type: 3}
-    - target: {fileID: 3479067029596092956, guid: f8df6907c10416543a5bb733ad8b0be6, type: 3}
-      propertyPath: 'fishPrefabs.Array.data[10]'
-      value: 
-      objectReference: {fileID: 5489470498816550714, guid: f0432284da2725e40bd42d5b10e5b80b, type: 3}
-    - target: {fileID: 3479067029596092956, guid: f8df6907c10416543a5bb733ad8b0be6, type: 3}
-      propertyPath: 'fishPrefabs.Array.data[11]'
-      value: 
-      objectReference: {fileID: 1793456495386761642, guid: 5d99aa1c03c23414c8e892e91cb5e51c, type: 3}
-    - target: {fileID: 3479067029596092956, guid: f8df6907c10416543a5bb733ad8b0be6, type: 3}
-      propertyPath: 'fishPrefabs.Array.data[12]'
-      value: 
-      objectReference: {fileID: 7265347822454820370, guid: 442218c10b108464c9170c8661ddb294, type: 3}
-    - target: {fileID: 3479067029596092956, guid: f8df6907c10416543a5bb733ad8b0be6, type: 3}
-      propertyPath: 'fishPrefabs.Array.data[13]'
-      value: 
-      objectReference: {fileID: 4467626735616805598, guid: 561fcee6ad0370e419b4a02d7a126db1, type: 3}
-    - target: {fileID: 3479067029596092956, guid: f8df6907c10416543a5bb733ad8b0be6, type: 3}
-      propertyPath: 'fishPrefabs.Array.data[14]'
-      value: 
-      objectReference: {fileID: 2198832984556997850, guid: 846086ea870abaf4cb145e1ed39cef4a, type: 3}
-    - target: {fileID: 3479067029596092956, guid: f8df6907c10416543a5bb733ad8b0be6, type: 3}
-      propertyPath: 'fishPrefabs.Array.data[15]'
-      value: 
-      objectReference: {fileID: 3911451128253662628, guid: 349556ca144e4994b93a221b86ef4154, type: 3}
-    - target: {fileID: 3479067029596092956, guid: f8df6907c10416543a5bb733ad8b0be6, type: 3}
-      propertyPath: 'fishPrefabs.Array.data[16]'
-      value: 
-      objectReference: {fileID: 5440476660054940829, guid: 7c609d199e833e64e80264c75b43688d, type: 3}
-    - target: {fileID: 3479067029596092956, guid: f8df6907c10416543a5bb733ad8b0be6, type: 3}
-      propertyPath: 'fishPrefabs.Array.data[17]'
-      value: 
-      objectReference: {fileID: 3793146743532390487, guid: 89c7d56787878bd45a97b081a69b5b43, type: 3}
     - target: {fileID: 4434013502815243502, guid: f8df6907c10416543a5bb733ad8b0be6, type: 3}
       propertyPath: m_Name
       value: Fishing Rod
