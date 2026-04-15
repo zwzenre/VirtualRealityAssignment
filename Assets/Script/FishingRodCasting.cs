@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class FishingRodCasting : MonoBehaviour
@@ -5,11 +6,13 @@ public class FishingRodCasting : MonoBehaviour
     public Transform rodTip;
     public GameObject hookPrefab;
     public LineRenderer line;
-    public GameObject fishPrefab;
+    public List<FishData> fishList;
+    private FishData currentFishData;
     public float castForce = 20f;
     public float reelSpeed = 5f;
     public float maxLineLength = 15f;
     public float slackRecoverSpeed = 3f;
+    
     private float currentLineLimit;
 
     private GameObject currentHook;
@@ -107,21 +110,47 @@ public class FishingRodCasting : MonoBehaviour
     }
 
 
-    public void SpawnFish()
+    public FishData SpawnFish()
     {
-        if (currentHook != null && currentFish == null)
+        if (fishList.Count == 0) return null;
+
+        int index = Random.Range(0, fishList.Count);
+        currentFishData = fishList[index];
+        if (currentFishData.prefab == null) return null;
+        currentFish = Instantiate(currentFishData.prefab);
+        currentFish.transform.position = currentHook.transform.position;
+        currentFish.transform.SetParent(currentHook.transform);
+        Rigidbody rb = currentFish.GetComponent<Rigidbody>();
+        if (rb != null)
         {
-            currentFish = Instantiate(fishPrefab, currentHook.transform.position, Quaternion.identity);
-            currentFish.transform.SetParent(currentHook.transform);
+            rb.isKinematic = true;
         }
+        
+        return currentFishData;
     }
 
     public void ResetCast()
     {
         isCast = false;
-        if (currentHook) Destroy(currentHook);
-        if (currentFish) Destroy(currentFish);
+        if (currentHook)
+        {
+            Destroy(currentHook);
+        }
+
+        if (currentFish)
+        {
+            //Rigidbody rb = currentFish.GetComponent<Rigidbody>();
+            //if (rb != null)
+            //    rb.isKinematic = false;
+
+            //currentFish.transform.SetParent(null);
+            //currentFish = null;
+
+            Destroy(currentFish);
+        }
+
         line.positionCount = 0;
+        currentFishData = null;
     }
 
     public void Cast()
@@ -141,4 +170,9 @@ public class FishingRodCasting : MonoBehaviour
     }
 
     public Vector3 GetHookPosition() => currentHook ? currentHook.transform.position : Vector3.zero;
+    
+    public FishData GetCurrentFishData()
+    {
+        return currentFishData;
+    }
 }

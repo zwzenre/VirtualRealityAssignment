@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -6,19 +7,19 @@ public class GameController : MonoBehaviour
     public TensionUI tensionUI;
     public FishingRodCasting rod;
     public TextMeshProUGUI statusText;
-    private float breakTimer = 0f;
-
-    private float visualTension = 0f;
+    public List<FishData> caughtFish = new List<FishData>();
     public AudioSource audioSource;
     public AudioClip castSound;
     public AudioClip biteSound;
     public AudioClip reelSound;
 
+    private float visualTension = 0f;
     private float waitTimer = 0f;
     private float minWaitTime = 2f;
     private float maxWaitTime = 5f; 
     private float targetWaitTime;
     private bool isReeling = false;
+    private float breakTimer = 0f;
 
     enum FishingState
     {
@@ -65,7 +66,6 @@ public class GameController : MonoBehaviour
         {
             if (isReeling)
             {
-                Debug.Log("Reeling...");
                 rod.Reel();
 
                 if (!audioSource.isPlaying)
@@ -102,6 +102,13 @@ public class GameController : MonoBehaviour
             if (Vector3.Distance(rod.rodTip.position, rod.GetHookPosition()) < 2.5f)
             {
                 statusText.text = "Fish Caught!";
+                FishData fish = rod.GetCurrentFishData();
+
+                if (fish != null)
+                {
+                    caughtFish.Add(fish);
+                }
+                Debug.Log(caughtFish.Count);
                 ResetFishing();
             }
         }
@@ -127,7 +134,7 @@ public class GameController : MonoBehaviour
             rod.Reel();
             state = FishingState.Hooked;
             statusText.text = "Hooked! Reel now!";
-            rod.SpawnFish();
+            FishData fish = rod.SpawnFish();
             breakTimer = 0f;
         }
 
@@ -147,4 +154,13 @@ public class GameController : MonoBehaviour
         tensionUI.ResetBar();
         state = FishingState.Idle;
     }
+}
+
+[System.Serializable]
+public class FishData
+{
+    public string fishName;
+    public GameObject prefab;
+    public int xp;
+    public float rarity;
 }
