@@ -46,13 +46,6 @@ public class GameController : MonoBehaviour
 
         if (state == FishingState.Waiting)
         {
-            //if (Input.GetKeyDown(KeyCode.F))
-            //{
-            //    state = FishingState.FishBite;
-            //    statusText.text = "Fish is biting!";
-            //    audioSource.PlayOneShot(biteSound);
-            //}
-
             waitTimer += Time.deltaTime;
 
             if (waitTimer >= targetWaitTime)
@@ -81,8 +74,14 @@ public class GameController : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.R))
             {
+                Debug.Log("Reeling...");
                 rod.Reel();
-                audioSource.PlayOneShot(reelSound);
+                if (!audioSource.isPlaying)
+                    audioSource.PlayOneShot(reelSound);
+            }
+            else
+            {
+                rod.RelaxLine();
             }
 
             float targetTension = rod.GetTension();
