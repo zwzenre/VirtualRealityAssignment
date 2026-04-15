@@ -2384,7 +2384,7 @@ PrefabInstance:
     - target: {fileID: 3479067029596092956, guid: f8df6907c10416543a5bb733ad8b0be6, type: 3}
       propertyPath: hookPrefab
       value: 
-      objectReference: {fileID: 1149072806055306101, guid: 1d499ca4ab18f76438c114f189624277, type: 3}
+      objectReference: {fileID: 1825666293286452779, guid: dde85878b112a154a91ba73521f45d20, type: 3}
     - target: {fileID: 3479067029596092956, guid: f8df6907c10416543a5bb733ad8b0be6, type: 3}
       propertyPath: maxLineLength
       value: 15

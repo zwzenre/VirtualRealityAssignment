@@ -6,10 +6,10 @@ public class FishingRodCasting : MonoBehaviour
     public GameObject hookPrefab;
     public LineRenderer line;
     public GameObject fishPrefab;
-
     public float castForce = 20f;
     public float reelSpeed = 5f;
     public float maxLineLength = 15f;
+    public float slackRecoverSpeed = 3f;
     private float currentLineLimit;
 
     private GameObject currentHook;
@@ -96,10 +96,16 @@ public class FishingRodCasting : MonoBehaviour
     {
         if (hookRb != null)
         {
-            Vector3 struggle = new Vector3(Mathf.Sin(Time.time * 5f), 0, Mathf.Cos(Time.time * 5f));
-            hookRb.AddForce(struggle * 10f, ForceMode.Force);
+            Vector3 random = new Vector3(
+                Random.Range(-0.5f, 0.5f),
+                0,
+                Random.Range(-0.5f, 0.5f)
+            );
+
+            hookRb.AddForce(random * 5f, ForceMode.Force);
         }
     }
+
 
     public void SpawnFish()
     {
@@ -126,6 +132,12 @@ public class FishingRodCasting : MonoBehaviour
     {
         currentLineLimit -= reelSpeed * Time.deltaTime;
         currentLineLimit = Mathf.Max(currentLineLimit, 1f);
+    }
+
+    public void RelaxLine()
+    {
+        currentLineLimit += slackRecoverSpeed * Time.deltaTime;
+        currentLineLimit = Mathf.Min(currentLineLimit, maxLineLength);
     }
 
     public Vector3 GetHookPosition() => currentHook ? currentHook.transform.position : Vector3.zero;
