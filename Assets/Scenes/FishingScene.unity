@@ -2297,46 +2297,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 142163516118984989, guid: f8df6907c10416543a5bb733ad8b0be6, type: 3}
-      propertyPath: m_Materials.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 142163516118984989, guid: f8df6907c10416543a5bb733ad8b0be6, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
+    - target: {fileID: 1998664206395184716, guid: f8df6907c10416543a5bb733ad8b0be6, type: 3}
+      propertyPath: m_InteractionManager
       value: 
-      objectReference: {fileID: 2100000, guid: e999e17d7fb8f5045bbe1dd9a13f0863, type: 2}
-    - target: {fileID: 142163516118984989, guid: f8df6907c10416543a5bb733ad8b0be6, type: 3}
-      propertyPath: m_Parameters.colorGradient.ctime1
-      value: 65535
-      objectReference: {fileID: 0}
-    - target: {fileID: 142163516118984989, guid: f8df6907c10416543a5bb733ad8b0be6, type: 3}
-      propertyPath: m_Parameters.colorGradient.ctime2
-      value: 65535
-      objectReference: {fileID: 0}
-    - target: {fileID: 142163516118984989, guid: f8df6907c10416543a5bb733ad8b0be6, type: 3}
-      propertyPath: m_Parameters.colorGradient.key2.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 142163516118984989, guid: f8df6907c10416543a5bb733ad8b0be6, type: 3}
-      propertyPath: m_Parameters.colorGradient.key2.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 142163516118984989, guid: f8df6907c10416543a5bb733ad8b0be6, type: 3}
-      propertyPath: m_Parameters.colorGradient.key2.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 142163516118984989, guid: f8df6907c10416543a5bb733ad8b0be6, type: 3}
-      propertyPath: m_Parameters.colorGradient.m_Mode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 142163516118984989, guid: f8df6907c10416543a5bb733ad8b0be6, type: 3}
-      propertyPath: m_Parameters.colorGradient.m_ColorSpace
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 142163516118984989, guid: f8df6907c10416543a5bb733ad8b0be6, type: 3}
-      propertyPath: m_Parameters.colorGradient.m_NumColorKeys
-      value: 2
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 139200558}
     - target: {fileID: 2133067385371169057, guid: f8df6907c10416543a5bb733ad8b0be6, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.89
@@ -2377,33 +2341,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3479067029596092956, guid: f8df6907c10416543a5bb733ad8b0be6, type: 3}
-      propertyPath: fishPrefab
-      value: 
-      objectReference: {fileID: 7660056815385157646, guid: 35b7195a6107d514e842806a72d31d57, type: 3}
-    - target: {fileID: 3479067029596092956, guid: f8df6907c10416543a5bb733ad8b0be6, type: 3}
-      propertyPath: hookPrefab
-      value: 
-      objectReference: {fileID: 1825666293286452779, guid: dde85878b112a154a91ba73521f45d20, type: 3}
-    - target: {fileID: 3479067029596092956, guid: f8df6907c10416543a5bb733ad8b0be6, type: 3}
-      propertyPath: maxLineLength
-      value: 15
-      objectReference: {fileID: 0}
     - target: {fileID: 4434013502815243502, guid: f8df6907c10416543a5bb733ad8b0be6, type: 3}
       propertyPath: m_Name
       value: Fishing Rod
-      objectReference: {fileID: 0}
-    - target: {fileID: 5830487154902479922, guid: f8df6907c10416543a5bb733ad8b0be6, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5830487154902479922, guid: f8df6907c10416543a5bb733ad8b0be6, type: 3}
-      propertyPath: m_InteractionManager
-      value: 
-      objectReference: {fileID: 139200558}
-    - target: {fileID: 5830487154902479922, guid: f8df6907c10416543a5bb733ad8b0be6, type: 3}
-      propertyPath: m_Activated.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

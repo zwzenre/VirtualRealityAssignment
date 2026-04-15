@@ -14,6 +14,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Reel",
+                    "type": "Value",
+                    "id": "140c6b90-f1b6-4196-b33d-96d26e12372f",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -25,6 +34,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "MenuPressed",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8b3f4c40-1fcd-428f-9153-5e3490566123",
+                    "path": "<XRController>{LeftHand}/{Trigger}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Reel",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
