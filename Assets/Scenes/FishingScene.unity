@@ -1060,6 +1060,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 787505767}
   m_CullTransparentMesh: 1
+--- !u!1 &819336621 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7378931918503849258, guid: d3bb480fb02e40347b1346310df6c4a3, type: 3}
+  m_PrefabInstance: {fileID: 3169120703634316910}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &819336626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 819336621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d96301ec9818e8e40905fc2f11bae370, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::XRInputBridge
+  gameController: {fileID: 949997133}
+  reelAction: {fileID: -5982496924579745919, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  castAction: {fileID: -2439264783773714294, guid: 0be0028c24f2a4c14a96b6aa39055933, type: 3}
 --- !u!1 &893092038
 GameObject:
   m_ObjectHideFlags: 0
@@ -1361,6 +1381,7 @@ MonoBehaviour:
   tensionUI: {fileID: 660192857}
   rod: {fileID: 1763495866}
   statusText: {fileID: 2146813330}
+  caughtFish: []
   audioSource: {fileID: 949997134}
   castSound: {fileID: 8300000, guid: f570781222cbc3649906dc5dae5efb4a, type: 3}
   biteSound: {fileID: 8300000, guid: 40115a8bad97a954884fbac7653f4c96, type: 3}
@@ -2276,6 +2297,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4297984272852658623, guid: d3bb480fb02e40347b1346310df6c4a3, type: 3}
+      propertyPath: m_ActionEvents.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4297984272852658623, guid: d3bb480fb02e40347b1346310df6c4a3, type: 3}
+      propertyPath: m_ActionEvents.Array.data[1].m_ActionId
+      value: 140c6b90-f1b6-4196-b33d-96d26e12372f
+      objectReference: {fileID: 0}
+    - target: {fileID: 4297984272852658623, guid: d3bb480fb02e40347b1346310df6c4a3, type: 3}
+      propertyPath: m_ActionEvents.Array.data[1].m_ActionName
+      value: Menu/Reel
+      objectReference: {fileID: 0}
     - target: {fileID: 7649585988518808014, guid: d3bb480fb02e40347b1346310df6c4a3, type: 3}
       propertyPath: m_Name
       value: XR
@@ -2287,7 +2320,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7378931918503849258, guid: d3bb480fb02e40347b1346310df6c4a3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 819336626}
   m_SourcePrefab: {fileID: 100100000, guid: d3bb480fb02e40347b1346310df6c4a3, type: 3}
 --- !u!1001 &9058584374994875928
 PrefabInstance:
