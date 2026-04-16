@@ -11,5 +11,6 @@ public class FishData
 {
     public string fishName;
     public GameObject prefab;
+    public GameObject underseaPrefab;
     public float score;
 }
