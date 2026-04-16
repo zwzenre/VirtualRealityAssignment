@@ -28,5 +28,10 @@ public class SceneManage : MonoBehaviour
         SceneManager.LoadScene("Underwater");
     }
 
+    public void LoadTutorial()
+    {
+        SceneManager.LoadScene("Tutorial");
+    }
+
     
 }
