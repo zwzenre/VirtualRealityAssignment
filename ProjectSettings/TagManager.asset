@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - spinner
+  - Fish
   layers:
   - Default
   - TransparentFX
