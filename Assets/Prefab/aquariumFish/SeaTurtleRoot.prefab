@@ -1,0 +1,171 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &22931643339497207
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1553015970632124071}
+  - component: {fileID: 509478242719226800}
+  m_Layer: 0
+  m_Name: SeaTurtleRoot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1553015970632124071
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 22931643339497207}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -94.34, y: 22.55, z: 38.05}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 107382150119159995}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &509478242719226800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 22931643339497207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 503a2be84e8d7f74a9913bd451c7b829, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FishFlocking
+  speed: 2
+  neighborRadius: 3
+  separationDistance: 1
+  alignmentWeight: 1
+  cohesionWeight: 1
+  separationWeight: 1.5
+  obstacleAvoidDistance: 2
+  obstacleAvoidStrength: 5
+  obstacleLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  aquariumCenter: {x: -90, y: 25, z: 40}
+  boundaryRadius: 10
+  boundaryForce: 2
+--- !u!1 &5781503398616915563
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 107382150119159995}
+  m_Layer: 0
+  m_Name: ModelFix
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &107382150119159995
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5781503398616915563}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 4716664074751970628}
+  m_Father: {fileID: 1553015970632124071}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!1001 &7172536296857514856
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 107382150119159995}
+    m_Modifications:
+    - target: {fileID: 2521174934654926380, guid: 3a8c2719b1d681442b394e8603882354, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.49999988
+      objectReference: {fileID: 0}
+    - target: {fileID: 2521174934654926380, guid: 3a8c2719b1d681442b394e8603882354, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.49999988
+      objectReference: {fileID: 0}
+    - target: {fileID: 2521174934654926380, guid: 3a8c2719b1d681442b394e8603882354, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2521174934654926380, guid: 3a8c2719b1d681442b394e8603882354, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2521174934654926380, guid: 3a8c2719b1d681442b394e8603882354, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2521174934654926380, guid: 3a8c2719b1d681442b394e8603882354, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2521174934654926380, guid: 3a8c2719b1d681442b394e8603882354, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2521174934654926380, guid: 3a8c2719b1d681442b394e8603882354, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2521174934654926380, guid: 3a8c2719b1d681442b394e8603882354, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2521174934654926380, guid: 3a8c2719b1d681442b394e8603882354, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2521174934654926380, guid: 3a8c2719b1d681442b394e8603882354, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2521174934654926380, guid: 3a8c2719b1d681442b394e8603882354, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3005822426778559638, guid: 3a8c2719b1d681442b394e8603882354, type: 3}
+      propertyPath: m_Name
+      value: SeaTurtle
+      objectReference: {fileID: 0}
+    - target: {fileID: 3636064752887291718, guid: 3a8c2719b1d681442b394e8603882354, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3636064752887291718, guid: 3a8c2719b1d681442b394e8603882354, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3a8c2719b1d681442b394e8603882354, type: 3}
+--- !u!4 &4716664074751970628 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2521174934654926380, guid: 3a8c2719b1d681442b394e8603882354, type: 3}
+  m_PrefabInstance: {fileID: 7172536296857514856}
+  m_PrefabAsset: {fileID: 0}
