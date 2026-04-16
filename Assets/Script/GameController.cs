@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class GameController : MonoBehaviour
 {
@@ -103,11 +104,6 @@ public class GameController : MonoBehaviour
             {
                 statusText.text = "Fish Caught!";
                 FishData fish = rod.GetCurrentFishData();
-
-                if (fish != null)
-                {
-                    caughtFish.Add(fish);
-                }
                 Debug.Log(caughtFish.Count);
                 ResetFishing();
             }
@@ -154,13 +150,25 @@ public class GameController : MonoBehaviour
         tensionUI.ResetBar();
         state = FishingState.Idle;
     }
-}
+    public void OnFishPlaced(SelectEnterEventArgs args)
+    {
+        GameObject fishObj = args.interactableObject.transform.gameObject;
 
-[System.Serializable]
-public class FishData
-{
-    public string fishName;
-    public GameObject prefab;
-    public int xp;
-    public float rarity;
+
+        if (!fishObj.CompareTag("Fish"))
+        {
+            return;
+        }
+
+        Fish fish = fishObj.GetComponent<Fish>();
+
+        if (fish != null && fish.data != null && !fish.isCollected)
+        {
+            fish.isCollected = true;
+            caughtFish.Add(fish.data);
+            Debug.Log("Added: " + fish.data.fishName);
+        }
+
+        Destroy(fishObj);
+    }
 }
