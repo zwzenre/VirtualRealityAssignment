@@ -49,25 +49,27 @@ public class FadeCanvas : MonoBehaviour
     private IEnumerator FadeIn(float duration)
     {
         float elapsedTime = 0.0f;
-
-        while (alpha <= 1.0f)
+        while (elapsedTime < duration)
         {
-            SetAlpha(elapsedTime / duration);
             elapsedTime += Time.deltaTime;
+            SetAlpha(Mathf.Lerp(0, 1, elapsedTime / duration));
             yield return null;
         }
+        SetAlpha(1);
+        CurrentRoutine = null; // Mark as finished
     }
 
     private IEnumerator FadeOut(float duration)
     {
         float elapsedTime = 0.0f;
-
-        while (alpha >= 0.0f)
+        while (elapsedTime < duration)
         {
-            SetAlpha(1 - (elapsedTime / duration));
             elapsedTime += Time.deltaTime;
+            SetAlpha(Mathf.Lerp(1, 0, elapsedTime / duration));
             yield return null;
         }
+        SetAlpha(0);
+        CurrentRoutine = null; // Mark as finished
     }
 
     private void SetAlpha(float value)
