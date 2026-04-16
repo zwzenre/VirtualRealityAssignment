@@ -118,14 +118,19 @@ public class FishingRodCasting : MonoBehaviour
         currentFishData = fishList[index];
         if (currentFishData.prefab == null) return null;
         currentFish = Instantiate(currentFishData.prefab);
-        currentFish.transform.position = currentHook.transform.position;
+        currentFish.transform.position = currentHook.transform.position + Vector3.up * 0.1f;
         currentFish.transform.SetParent(currentHook.transform);
         Rigidbody rb = currentFish.GetComponent<Rigidbody>();
         if (rb != null)
         {
             rb.isKinematic = true;
         }
-        
+        Fish fishComponent = currentFish.GetComponent<Fish>();
+        if (fishComponent != null)
+        {
+            fishComponent.data = currentFishData;
+        }
+
         return currentFishData;
     }
 
@@ -139,14 +144,13 @@ public class FishingRodCasting : MonoBehaviour
 
         if (currentFish)
         {
-            //Rigidbody rb = currentFish.GetComponent<Rigidbody>();
-            //if (rb != null)
-            //    rb.isKinematic = false;
-
-            //currentFish.transform.SetParent(null);
-            //currentFish = null;
-
-            Destroy(currentFish);
+            currentFish.transform.SetParent(null);
+            Rigidbody rb = currentFish.GetComponent<Rigidbody>();
+            if (rb != null)
+            {
+                rb.isKinematic = false;
+                rb.useGravity = true;
+            }
         }
 
         line.positionCount = 0;
