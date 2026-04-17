@@ -2289,6 +2289,7 @@ GameObject:
   - component: {fileID: 8607133757709222581}
   - component: {fileID: 6183590666397219061}
   - component: {fileID: 4297984272852658623}
+  - component: {fileID: 7416458245246401853}
   m_Layer: 0
   m_Name: XR Rig
   m_TagString: Untagged
@@ -2396,11 +2397,35 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: e79a65cf-ab4f-484c-bb7a-dd66f36e2cfb
     m_ActionName: Menu/MenuPressed
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 140c6b90-f1b6-4196-b33d-96d26e12372f
+    m_ActionName: Menu/Reel
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: b7a02dd6-2b8d-417c-8312-d9533c4d3a52
+    m_ActionName: Menu/cast
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Menu
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &7416458245246401853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7378931918503849258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d96301ec9818e8e40905fc2f11bae370, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::XRInputBridge
+  gameController: {fileID: 0}
+  rodGrab: {fileID: 0}
+  reelAction: {fileID: -58525026315139555, guid: 965b15c1278e8404dbb0cbcbf2a25fa1, type: 3}
+  castAction: {fileID: 1591431758725090116, guid: 965b15c1278e8404dbb0cbcbf2a25fa1, type: 3}
 --- !u!1 &7649585988518808014
 GameObject:
   m_ObjectHideFlags: 0

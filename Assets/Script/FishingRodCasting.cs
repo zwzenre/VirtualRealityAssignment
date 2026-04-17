@@ -1,5 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit.Interactables;
+using UnityEngine.XR.Interaction.Toolkit.Transformers;
 
 public class FishingRodCasting : MonoBehaviour
 {
@@ -145,6 +147,9 @@ public class FishingRodCasting : MonoBehaviour
         if (currentFish)
         {
             currentFish.transform.SetParent(null);
+            currentFish.GetComponent<XRGrabInteractable>().enabled = true;
+            currentFish.GetComponent<XRGeneralGrabTransformer>().enabled = true;
+            currentFish.GetComponent<Fish>().enabled = true;
             Rigidbody rb = currentFish.GetComponent<Rigidbody>();
             if (rb != null)
             {
