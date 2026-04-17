@@ -1968,6 +1968,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8df6907c10416543a5bb733ad8b0be6, type: 3}
+--- !u!114 &805485766 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1998664206395184716, guid: f8df6907c10416543a5bb733ad8b0be6, type: 3}
+  m_PrefabInstance: {fileID: 805485765}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad34abafad169848a38072baa96cdb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.XR.Interaction.Toolkit::UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable
 --- !u!1 &815642670
 GameObject:
   m_ObjectHideFlags: 0
@@ -4483,6 +4494,74 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1419212621}
   m_CullTransparentMesh: 1
+--- !u!1001 &1437410675
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2844923135642989809, guid: 959a72f034cf8c247b76b81cc9de7b41, type: 3}
+      propertyPath: m_Name
+      value: Game Controller
+      objectReference: {fileID: 0}
+    - target: {fileID: 5908300110695483985, guid: 959a72f034cf8c247b76b81cc9de7b41, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -19.07881
+      objectReference: {fileID: 0}
+    - target: {fileID: 5908300110695483985, guid: 959a72f034cf8c247b76b81cc9de7b41, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5908300110695483985, guid: 959a72f034cf8c247b76b81cc9de7b41, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3.29011
+      objectReference: {fileID: 0}
+    - target: {fileID: 5908300110695483985, guid: 959a72f034cf8c247b76b81cc9de7b41, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5908300110695483985, guid: 959a72f034cf8c247b76b81cc9de7b41, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5908300110695483985, guid: 959a72f034cf8c247b76b81cc9de7b41, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5908300110695483985, guid: 959a72f034cf8c247b76b81cc9de7b41, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5908300110695483985, guid: 959a72f034cf8c247b76b81cc9de7b41, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5908300110695483985, guid: 959a72f034cf8c247b76b81cc9de7b41, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5908300110695483985, guid: 959a72f034cf8c247b76b81cc9de7b41, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 959a72f034cf8c247b76b81cc9de7b41, type: 3}
+--- !u!114 &1437410676 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5978003262251018520, guid: 959a72f034cf8c247b76b81cc9de7b41, type: 3}
+  m_PrefabInstance: {fileID: 1437410675}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0ccf74365ad29b4d9c8555847114607, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameController
 --- !u!1 &1461533427
 GameObject:
   m_ObjectHideFlags: 0
@@ -4715,6 +4794,14 @@ PrefabInstance:
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SetSFXVolume
       objectReference: {fileID: 0}
+    - target: {fileID: 7416458245246401853, guid: d3bb480fb02e40347b1346310df6c4a3, type: 3}
+      propertyPath: rodGrab
+      value: 
+      objectReference: {fileID: 805485766}
+    - target: {fileID: 7416458245246401853, guid: d3bb480fb02e40347b1346310df6c4a3, type: 3}
+      propertyPath: gameController
+      value: 
+      objectReference: {fileID: 1437410676}
     - target: {fileID: 7649585988518808014, guid: d3bb480fb02e40347b1346310df6c4a3, type: 3}
       propertyPath: m_Name
       value: XR
@@ -28390,6 +28477,7 @@ GameObject:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 1437410675}
   - {fileID: 2134979734}
   - {fileID: 485722629}
   - {fileID: 1502093871}
