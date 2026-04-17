@@ -8,7 +8,7 @@ public class GameController : MonoBehaviour
     public TensionUI tensionUI;
     public FishingRodCasting rod;
     public TextMeshProUGUI statusText;
-    public List<FishData> caughtFish = new List<FishData>();
+    //public List<FishData> caughtFish = new List<FishData>();
     public AudioSource audioSource;
     public AudioClip castSound;
     public AudioClip biteSound;
@@ -32,10 +32,10 @@ public class GameController : MonoBehaviour
 
     FishingState state = FishingState.Idle;
 
-    void Awake()
-    {
-        DontDestroyOnLoad(gameObject);
-    }
+    //void Awake()
+    //{
+    //    DontDestroyOnLoad(gameObject);
+    //}
 
     void Update()
     {
@@ -109,7 +109,7 @@ public class GameController : MonoBehaviour
             {
                 statusText.text = "Fish Caught!";
                 FishData fish = rod.GetCurrentFishData();
-                Debug.Log(caughtFish.Count);
+                //Debug.Log(caughtFish.Count);
                 ResetFishing();
             }
         }

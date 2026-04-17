@@ -5,11 +5,11 @@ public class StoreFish : MonoBehaviour
 {
     private GameController gameController;
 
-    void Start()
-    {
-        GameObject gcObj = GameObject.FindWithTag("GameController");
-        gameController = gcObj ? gcObj.GetComponent<GameController>() : null;
-    }
+    //void Start()
+    //{
+    //    GameObject gcObj = GameObject.FindWithTag("GameController");
+    //    gameController = gcObj ? gcObj.GetComponent<GameController>() : null;
+    //}
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Fish"))
@@ -20,7 +20,8 @@ public class StoreFish : MonoBehaviour
             {
                 fishComponent.isCollected = true;
 
-                gameController.caughtFish.Add(fishComponent.data);
+                //gameController.caughtFish.Add(fishComponent.data);
+                FishManager.Instance.AddFish(fishComponent.data);
 
                 Destroy(other.gameObject);
             }
