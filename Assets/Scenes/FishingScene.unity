@@ -551,26 +551,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc24082340d74ad4b95eb91b18fa429a, type: 3}
---- !u!1 &819336621 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7378931918503849258, guid: d3bb480fb02e40347b1346310df6c4a3, type: 3}
-  m_PrefabInstance: {fileID: 3169120703634316910}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &819336626
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 819336621}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d96301ec9818e8e40905fc2f11bae370, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::XRInputBridge
-  gameController: {fileID: 949997133}
-  reelAction: {fileID: -58525026315139555, guid: 965b15c1278e8404dbb0cbcbf2a25fa1, type: 3}
-  castAction: {fileID: 1591431758725090116, guid: 965b15c1278e8404dbb0cbcbf2a25fa1, type: 3}
 --- !u!1 &893092038
 GameObject:
   m_ObjectHideFlags: 0
@@ -1035,6 +1015,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 385342938890197797, guid: d3bb480fb02e40347b1346310df6c4a3, type: 3}
+      propertyPath: rodGrab
+      value: 
+      objectReference: {fileID: 9058584374994875929}
+    - target: {fileID: 385342938890197797, guid: d3bb480fb02e40347b1346310df6c4a3, type: 3}
+      propertyPath: gameController
+      value: 
+      objectReference: {fileID: 949997133}
     - target: {fileID: 1778145795350545851, guid: d3bb480fb02e40347b1346310df6c4a3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 48.8
@@ -1075,37 +1063,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4297984272852658623, guid: d3bb480fb02e40347b1346310df6c4a3, type: 3}
-      propertyPath: m_ActionEvents.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4297984272852658623, guid: d3bb480fb02e40347b1346310df6c4a3, type: 3}
-      propertyPath: m_ActionEvents.Array.data[1].m_ActionId
-      value: 140c6b90-f1b6-4196-b33d-96d26e12372f
-      objectReference: {fileID: 0}
-    - target: {fileID: 4297984272852658623, guid: d3bb480fb02e40347b1346310df6c4a3, type: 3}
-      propertyPath: m_ActionEvents.Array.data[1].m_ActionName
-      value: Menu/Reel
-      objectReference: {fileID: 0}
-    - target: {fileID: 5878406970827939552, guid: d3bb480fb02e40347b1346310df6c4a3, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7649585988518808014, guid: d3bb480fb02e40347b1346310df6c4a3, type: 3}
       propertyPath: m_Name
       value: XR
       objectReference: {fileID: 0}
-    - target: {fileID: 7649585988518808014, guid: d3bb480fb02e40347b1346310df6c4a3, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7378931918503849258, guid: d3bb480fb02e40347b1346310df6c4a3, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 819336626}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d3bb480fb02e40347b1346310df6c4a3, type: 3}
 --- !u!1001 &9058584374994875928
 PrefabInstance:
@@ -1288,6 +1253,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8df6907c10416543a5bb733ad8b0be6, type: 3}
+--- !u!114 &9058584374994875929 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1998664206395184716, guid: f8df6907c10416543a5bb733ad8b0be6, type: 3}
+  m_PrefabInstance: {fileID: 9058584374994875928}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad34abafad169848a38072baa96cdb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.XR.Interaction.Toolkit::UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
