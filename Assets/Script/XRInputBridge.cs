@@ -1,9 +1,11 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
 public class XRInputBridge : MonoBehaviour
 {
     public GameController gameController;
+    public XRGrabInteractable rodGrab;
 
     public InputActionReference reelAction;
     public InputActionReference castAction;
@@ -39,6 +41,7 @@ public class XRInputBridge : MonoBehaviour
 
     void OnCast(InputAction.CallbackContext ctx)
     {
+        if (!rodGrab.isSelected) return;
         gameController.OnCastPressed();
     }
 }
