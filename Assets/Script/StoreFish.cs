@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class StoreFish : MonoBehaviour
 {
-    private GameController gameController;
+    //private GameController gameController;
 
     //void Start()
     //{
@@ -16,7 +16,7 @@ public class StoreFish : MonoBehaviour
         {
             Fish fishComponent = other.GetComponent<Fish>();
 
-            if (fishComponent != null && fishComponent.data != null && !fishComponent.isCollected && gameController != null)
+            if (fishComponent != null && fishComponent.data != null && !fishComponent.isCollected) //&& gameController != null)
             {
                 fishComponent.isCollected = true;
 

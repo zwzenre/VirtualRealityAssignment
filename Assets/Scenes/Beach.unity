@@ -623,22 +623,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 9.763
       objectReference: {fileID: 0}
-    - target: {fileID: 3479067029596092956, guid: f8df6907c10416543a5bb733ad8b0be6, type: 3}
-      propertyPath: fishList.Array.data[1].prefab
-      value: 
-      objectReference: {fileID: 7770584863604633872, guid: 67de17aaa6711224f80123d9b1ef8cb7, type: 3}
-    - target: {fileID: 3479067029596092956, guid: f8df6907c10416543a5bb733ad8b0be6, type: 3}
-      propertyPath: fishList.Array.data[2].prefab
-      value: 
-      objectReference: {fileID: 2206852426022253465, guid: de500f6b90f89bc4c87a6585b2dea01a, type: 3}
-    - target: {fileID: 3479067029596092956, guid: f8df6907c10416543a5bb733ad8b0be6, type: 3}
-      propertyPath: fishList.Array.data[3].prefab
-      value: 
-      objectReference: {fileID: 1937588542411740048, guid: a05072560c3476b4cb8dddf22f697392, type: 3}
-    - target: {fileID: 3479067029596092956, guid: f8df6907c10416543a5bb733ad8b0be6, type: 3}
-      propertyPath: fishList.Array.data[4].prefab
-      value: 
-      objectReference: {fileID: 5925960515861282153, guid: 2fb93ff3c1250a74ca5f53a6bc162675, type: 3}
     - target: {fileID: 4434013502815243502, guid: f8df6907c10416543a5bb733ad8b0be6, type: 3}
       propertyPath: m_Name
       value: Fishing Rod
