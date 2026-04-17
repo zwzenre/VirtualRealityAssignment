@@ -149,6 +149,7 @@ public class FishingRodCasting : MonoBehaviour
             currentFish.transform.SetParent(null);
             currentFish.GetComponent<XRGrabInteractable>().enabled = true;
             currentFish.GetComponent<XRGeneralGrabTransformer>().enabled = true;
+            currentFish.GetComponent<Fish>().enabled = true;
             Rigidbody rb = currentFish.GetComponent<Rigidbody>();
             if (rb != null)
             {

@@ -1,8 +1,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.XR.Interaction.Toolkit;
-using UnityEngine.XR.Interaction.Toolkit.Interactables;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -32,6 +31,11 @@ public class GameController : MonoBehaviour
     }
 
     FishingState state = FishingState.Idle;
+
+    void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
 
     void Update()
     {
@@ -150,25 +154,27 @@ public class GameController : MonoBehaviour
         tensionUI.ResetBar();
         state = FishingState.Idle;
     }
-    public void OnFishPlaced(SelectEnterEventArgs args)
+
+    void OnEnable()
     {
-        GameObject fishObj = args.interactableObject.transform.gameObject;
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
 
+    void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        GameObject statusObj = GameObject.FindWithTag("StatusText");
+        if (statusObj != null)
+            statusText = statusObj.GetComponent<TextMeshProUGUI>();
 
-        if (!fishObj.CompareTag("Fish"))
-        {
-            return;
-        }
-
-        Fish fish = fishObj.GetComponent<Fish>();
-
-        if (fish != null && fish.data != null && !fish.isCollected)
-        {
-            fish.isCollected = true;
-            caughtFish.Add(fish.data);
-            Debug.Log("Added: " + fish.data.fishName);
-        }
-
-        Destroy(fishObj);
+        GameObject tensionObj = GameObject.FindWithTag("TensionUI");
+        if (tensionObj != null)
+            tensionUI = tensionObj.GetComponent<TensionUI>();
+        GameObject rodObj = GameObject.FindWithTag("FishingRod");
+        if (rodObj != null)
+            rod = rodObj.GetComponent<FishingRodCasting>();
     }
 }

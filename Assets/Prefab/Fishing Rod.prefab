@@ -647,7 +647,7 @@ GameObject:
   - component: {fileID: 8500057030634788629}
   m_Layer: 0
   m_Name: Fishing Rod
-  m_TagString: Untagged
+  m_TagString: FishingRod
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -685,82 +685,63 @@ MonoBehaviour:
   hookPrefab: {fileID: 1825666293286452779, guid: dde85878b112a154a91ba73521f45d20, type: 3}
   line: {fileID: 8500057030634788629}
   fishList:
-  - fishName: 
+  - fishName: Fish1
     prefab: {fileID: 104517609856167801, guid: 94c015d94f6e5364e9b36b960bbe1b77, type: 3}
-    xp: 0
-    rarity: 0
-  - fishName: 
-    prefab: {fileID: 919132149155446097, guid: a8fd0d08c30426d4c978a4998752cf7d, type: 3}
-    xp: 0
-    rarity: 0
-  - fishName: 
-    prefab: {fileID: 919132149155446097, guid: ae51ad94fa7d3764d957aa512d506d00, type: 3}
-    xp: 0
-    rarity: 0
-  - fishName: 
-    prefab: {fileID: 919132149155446097, guid: ea93ead513f04c9478f78e3f40ba5b11, type: 3}
-    xp: 0
-    rarity: 0
-  - fishName: 
-    prefab: {fileID: 919132149155446097, guid: ca38d4485fce19f4aa0d3d7bdd8b6cf2, type: 3}
-    xp: 0
-    rarity: 0
-  - fishName: 
+    underseaPrefab: {fileID: 0}
+  - fishName: Fish2
+    prefab: {fileID: 7770584863604633872, guid: 67de17aaa6711224f80123d9b1ef8cb7, type: 3}
+    underseaPrefab: {fileID: 0}
+  - fishName: Fish3
+    prefab: {fileID: 2206852426022253465, guid: de500f6b90f89bc4c87a6585b2dea01a, type: 3}
+    underseaPrefab: {fileID: 0}
+  - fishName: Fish4
+    prefab: {fileID: 1937588542411740048, guid: a05072560c3476b4cb8dddf22f697392, type: 3}
+    underseaPrefab: {fileID: 0}
+  - fishName: Fish5
+    prefab: {fileID: 5925960515861282153, guid: 2fb93ff3c1250a74ca5f53a6bc162675, type: 3}
+    underseaPrefab: {fileID: 0}
+  - fishName: Fish6
     prefab: {fileID: 6116946952694375668, guid: 45977e3d2717782469ccbd471a526680, type: 3}
-    xp: 0
-    rarity: 0
-  - fishName: 
+    underseaPrefab: {fileID: 0}
+  - fishName: Fish7
     prefab: {fileID: 8848912004881509116, guid: 2aeb5c3a158bb9843b72617f4bb17afe, type: 3}
-    xp: 0
-    rarity: 0
-  - fishName: 
+    underseaPrefab: {fileID: 0}
+  - fishName: Fish8
     prefab: {fileID: 2576910639401555240, guid: 38453c08482feef46925c63d2e9e6598, type: 3}
-    xp: 0
-    rarity: 0
-  - fishName: 
+    underseaPrefab: {fileID: 0}
+  - fishName: Fish9
     prefab: {fileID: 5082097677804754794, guid: 03b6fb38b56b8d846a77ce20b035ddab, type: 3}
-    xp: 0
-    rarity: 0
-  - fishName: 
+    underseaPrefab: {fileID: 0}
+  - fishName: Fish10
     prefab: {fileID: 1793456495386761642, guid: 5d99aa1c03c23414c8e892e91cb5e51c, type: 3}
-    xp: 0
-    rarity: 0
-  - fishName: 
+    underseaPrefab: {fileID: 0}
+  - fishName: Fish11
     prefab: {fileID: 7265347822454820370, guid: 442218c10b108464c9170c8661ddb294, type: 3}
-    xp: 0
-    rarity: 0
-  - fishName: 
+    underseaPrefab: {fileID: 0}
+  - fishName: Fish12
     prefab: {fileID: 4467626735616805598, guid: 561fcee6ad0370e419b4a02d7a126db1, type: 3}
-    xp: 0
-    rarity: 0
-  - fishName: 
+    underseaPrefab: {fileID: 0}
+  - fishName: Fish13
     prefab: {fileID: 6817605226350521283, guid: 7eae7165760ea8e4392990af4666d35b, type: 3}
-    xp: 0
-    rarity: 0
-  - fishName: 
-    prefab: {fileID: 3911451128253662628, guid: 349556ca144e4994b93a221b86ef4154, type: 3}
-    xp: 0
-    rarity: 0
-  - fishName: 
+    underseaPrefab: {fileID: 0}
+  - fishName: Fish14
+    prefab: {fileID: 3005822426778559638, guid: 3a8c2719b1d681442b394e8603882354, type: 3}
+    underseaPrefab: {fileID: 0}
+  - fishName: Fish15
     prefab: {fileID: 3793146743532390487, guid: 89c7d56787878bd45a97b081a69b5b43, type: 3}
-    xp: 0
-    rarity: 0
-  - fishName: 
+    underseaPrefab: {fileID: 0}
+  - fishName: Fish16
     prefab: {fileID: 5440476660054940829, guid: 7c609d199e833e64e80264c75b43688d, type: 3}
-    xp: 0
-    rarity: 0
-  - fishName: 
+    underseaPrefab: {fileID: 0}
+  - fishName: Fish17
     prefab: {fileID: 7660056815385157646, guid: 35b7195a6107d514e842806a72d31d57, type: 3}
-    xp: 0
-    rarity: 0
-  - fishName: 
-    prefab: {fileID: 8264218793534278510, guid: 5caeff36034ffba4ea451e4904348494, type: 3}
-    xp: 0
-    rarity: 0
-  - fishName: 
+    underseaPrefab: {fileID: 0}
+  - fishName: Fish18
     prefab: {fileID: 1809855982420343196, guid: a20ffe8d10c78534cafd817b38517e05, type: 3}
-    xp: 0
-    rarity: 0
+    underseaPrefab: {fileID: 0}
+  - fishName: Fish19
+    prefab: {fileID: 8264218793534278510, guid: 5caeff36034ffba4ea451e4904348494, type: 3}
+    underseaPrefab: {fileID: 0}
   castForce: 20
   reelSpeed: 5
   maxLineLength: 15
