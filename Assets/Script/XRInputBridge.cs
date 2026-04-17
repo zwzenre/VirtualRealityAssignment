@@ -1,5 +1,7 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
 public class XRInputBridge : MonoBehaviour
@@ -10,6 +12,8 @@ public class XRInputBridge : MonoBehaviour
     public InputActionReference reelAction;
     public InputActionReference castAction;
 
+    bool isHoldingRod = false;
+
     void OnEnable()
     {
         reelAction.action.Enable();
@@ -19,6 +23,9 @@ public class XRInputBridge : MonoBehaviour
         reelAction.action.canceled += OnReel;
 
         castAction.action.performed += OnCast;
+
+        rodGrab.selectEntered.AddListener(OnGrab);
+        rodGrab.selectExited.AddListener(OnRelease);
     }
 
     void OnDisable()
@@ -27,6 +34,8 @@ public class XRInputBridge : MonoBehaviour
         reelAction.action.canceled -= OnReel;
 
         castAction.action.performed -= OnCast;
+        rodGrab.selectEntered.RemoveListener(OnGrab);
+        rodGrab.selectExited.RemoveListener(OnRelease);
     }
 
     void OnReel(InputAction.CallbackContext ctx)
@@ -41,7 +50,17 @@ public class XRInputBridge : MonoBehaviour
 
     void OnCast(InputAction.CallbackContext ctx)
     {
-        if (!rodGrab.isSelected) return;
+        if (!isHoldingRod) return;
         gameController.OnCastPressed();
+    }
+
+    void OnGrab(SelectEnterEventArgs args)
+    {
+        isHoldingRod = true;
+    }
+
+    void OnRelease(SelectExitEventArgs args)
+    {
+        isHoldingRod = false;
     }
 }
