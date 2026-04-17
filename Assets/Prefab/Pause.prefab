@@ -797,7 +797,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &1943591267379293067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1704,7 +1704,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 4305902357584710291, guid: f63470db43ec74745b609cb62cf05b77, type: 3}
         m_TargetAssemblyTypeName: SceneManage, Assembly-CSharp
         m_MethodName: LoadMainMenu
         m_Mode: 1
