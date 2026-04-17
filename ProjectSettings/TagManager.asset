@@ -6,6 +6,9 @@ TagManager:
   tags:
   - spinner
   - Fish
+  - StatusText
+  - TensionUI
+  - FishingRod
   layers:
   - Default
   - TransparentFX
