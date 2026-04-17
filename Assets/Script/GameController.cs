@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
 public class GameController : MonoBehaviour
 {
@@ -112,7 +113,6 @@ public class GameController : MonoBehaviour
     public void OnCastPressed()
     {
         if (state != FishingState.Idle) return;
-
         rod.Cast();
         visualTension = 0f;
         state = FishingState.Waiting;
