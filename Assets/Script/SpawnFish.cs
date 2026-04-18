@@ -35,11 +35,16 @@ public class SpawnFish : MonoBehaviour
             {
                 Vector3 offset = Random.insideUnitSphere * 2f;
 
-                Instantiate(
-                    fishType.underseaPrefab,
-                    spawnPoint.position + offset,
-                    Quaternion.identity
-                );
+                GameObject obj = Instantiate(fishType.underseaPrefab,spawnPoint.position + offset,
+                    Quaternion.identity);
+
+                Rigidbody[] rbs = obj.GetComponentsInChildren<Rigidbody>();
+
+                foreach (var rb in rbs)
+                {
+                    rb.useGravity = false;
+                    rb.isKinematic = true;
+                }
             }
         }
     }
