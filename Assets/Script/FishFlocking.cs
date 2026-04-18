@@ -1,47 +1,58 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class FishFlocking : MonoBehaviour
 {
-    // ===== STATIC LIST (OPTIMIZED) =====
     public static List<FishFlocking> allFish = new List<FishFlocking>();
 
-    void OnEnable() => allFish.Add(this);
-    void OnDisable() => allFish.Remove(this);
+    void OnEnable()
+    {
+        if (!allFish.Contains(this))
+            allFish.Add(this);
+    }
 
-    // ===== MOVEMENT SETTINGS =====
-    public float speed = 2f;
+    void OnDisable()
+    {
+        allFish.Remove(this);
+    }
+
+    [Header("Movement")]
+    public float minSpeed = 1.5f;
+    public float maxSpeed = 3f;
+    public float turnSpeed = 1.5f;
+    public float acceleration = 2f;
+
+    [Header("Flocking")]
     public float neighborRadius = 3f;
     public float separationDistance = 1f;
-
-    // ===== FLOCKING WEIGHTS =====
     public float alignmentWeight = 1f;
-    public float cohesionWeight = 1f;
-    public float separationWeight = 1.5f;
+    public float cohesionWeight = 0.35f;
+    public float separationWeight = 1.8f;
 
-    // ===== OBSTACLE AVOIDANCE =====
-    public float obstacleAvoidDistance = 2f;
-    public float obstacleAvoidStrength = 5f;
+    [Header("Obstacle")]
     public LayerMask obstacleLayer;
+    public float obstacleCheckDistance = 2f;
+    public float obstacleAvoidWeight = 1.5f;
+    public float obstacleRadius = 0.25f;
 
-    // ===== BOUNDARY SETTINGS =====
-    public Vector3 aquariumCenter = Vector3.zero;
-    public float boundaryRadius = 10f;
-    public float boundaryForce = 2f;
+    [Header("Boundary")]
+    public float boundaryRadius = 5f;
+    public float boundaryWeight = 1.0f;
 
-    // ===== INTERNAL =====
     private Vector3 velocity;
+    private float speed;
 
     void Start()
     {
+        speed = Random.Range(minSpeed, maxSpeed);
         velocity = transform.forward * speed;
-
-        // Optional randomness (makes fish less robotic)
-        speed = Random.Range(1.5f, 3f);
     }
 
     void Update()
     {
+        if (AquariumManager.Instance == null || AquariumManager.Instance.center == null)
+            return;
+
         List<FishFlocking> neighbors = GetNeighbors();
 
         Vector3 alignment = Vector3.zero;
@@ -50,69 +61,106 @@ public class FishFlocking : MonoBehaviour
 
         foreach (var fish in neighbors)
         {
-            alignment += fish.velocity;
+            alignment += fish.velocity.normalized;
             cohesion += fish.transform.position;
 
             float dist = Vector3.Distance(transform.position, fish.transform.position);
-
-            if (dist < separationDistance)
+            if (dist < separationDistance && dist > 0.001f)
             {
-                separation += (transform.position - fish.transform.position) / dist;
+                separation += (transform.position - fish.transform.position).normalized / dist;
             }
         }
 
         if (neighbors.Count > 0)
         {
-            alignment /= neighbors.Count;
-            cohesion = (cohesion / neighbors.Count) - transform.position;
+            alignment = (alignment / neighbors.Count).normalized;
+            cohesion = ((cohesion / neighbors.Count) - transform.position).normalized;
+            separation = separation.normalized;
         }
 
-        // ===== OBSTACLE AVOIDANCE =====
-        Vector3 avoidDir = Vector3.zero;
-        RaycastHit hit;
+        Vector3 boundary = GetBoundaryForce();
+        Vector3 avoid = GetObstacleAvoidance();
 
-        Vector3[] directions = {
-            transform.forward,
-            Quaternion.AngleAxis(-30, Vector3.up) * transform.forward,
-            Quaternion.AngleAxis(30, Vector3.up) * transform.forward
-        };
-
-        foreach (var dir in directions)
-        {
-            if (Physics.Raycast(transform.position, dir, out hit, obstacleAvoidDistance, obstacleLayer))
-            {
-                avoidDir += hit.normal * obstacleAvoidStrength;
-            }
-        }
-
-        // ===== BOUNDARY FORCE =====
-        Vector3 toCenter = aquariumCenter - transform.position;
-        Vector3 boundaryDir = Vector3.zero;
-
-        if (toCenter.magnitude > boundaryRadius)
-        {
-            boundaryDir = toCenter.normalized * boundaryForce;
-        }
-
-        // ===== COMBINE ALL FORCES =====
-        Vector3 acceleration =
+        // Keep some current heading so fish don't orbit in circles
+        Vector3 desiredDir =
+            velocity.normalized * 1.5f +
             alignment * alignmentWeight +
             cohesion * cohesionWeight +
             separation * separationWeight +
-            avoidDir +
-            boundaryDir;
+            boundary * boundaryWeight +
+            avoid * obstacleAvoidWeight;
 
-        // ===== APPLY MOVEMENT =====
-        velocity += acceleration * Time.deltaTime;
+        if (desiredDir.sqrMagnitude < 0.001f)
+            desiredDir = transform.forward;
 
-        // Prevent crazy speeds
-        velocity = velocity.normalized * speed;
+        desiredDir.Normalize();
+
+        Vector3 desiredVelocity = desiredDir * speed;
+
+        // Smooth velocity change
+        velocity = Vector3.Lerp(velocity, desiredVelocity, acceleration * Time.deltaTime);
+
+        // Limit turning rate
+        Vector3 newForward = Vector3.RotateTowards(
+            transform.forward,
+            velocity.normalized,
+            turnSpeed * Time.deltaTime,
+            0f
+        );
+
+        transform.rotation = Quaternion.LookRotation(newForward);
+        velocity = newForward * speed;
 
         transform.position += velocity * Time.deltaTime;
-        transform.forward = velocity;
+    }
 
-        // Small randomness to avoid stuck behavior
-        velocity += Random.insideUnitSphere * 0.1f;
+    Vector3 GetBoundaryForce()
+    {
+        Vector3 toCenter = AquariumManager.Instance.center.position - transform.position;
+        float dist = toCenter.magnitude;
+
+        float t = Mathf.Clamp01(dist / boundaryRadius);
+        return toCenter.normalized * (t * t);
+    }
+
+    Vector3 GetObstacleAvoidance()
+    {
+        Vector3 origin = transform.position;
+
+        Vector3[] dirs =
+        {
+            transform.forward,
+            (transform.forward + transform.right * 0.5f).normalized,
+            (transform.forward - transform.right * 0.5f).normalized
+        };
+
+        Vector3 avoid = Vector3.zero;
+        int hits = 0;
+
+        foreach (var dir in dirs)
+        {
+            if (Physics.SphereCast(origin, obstacleRadius, dir, out RaycastHit hit, obstacleCheckDistance, obstacleLayer))
+            {
+                hits++;
+
+                // Push away from obstacle surface
+                avoid += hit.normal;
+
+                // Only a small sideways correction
+                Vector3 side = Vector3.Cross(hit.normal, Vector3.up).normalized;
+                if (Vector3.Dot(side, transform.right) < 0f)
+                    side = -side;
+
+                avoid += side * 0.15f;
+            }
+        }
+
+        if (hits == 0)
+            return Vector3.zero;
+
+        avoid /= hits;
+        avoid.y *= 0.3f;
+        return avoid.normalized;
     }
 
     List<FishFlocking> GetNeighbors()
@@ -124,9 +172,7 @@ public class FishFlocking : MonoBehaviour
             if (fish == this) continue;
 
             if (Vector3.Distance(transform.position, fish.transform.position) < neighborRadius)
-            {
                 neighbors.Add(fish);
-            }
         }
 
         return neighbors;

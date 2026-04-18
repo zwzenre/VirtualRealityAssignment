@@ -275,6 +275,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4934799047c1f1d4da2d4c5376af1f6c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2129463026333753413}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4934799047c1f1d4da2d4c5376af1f6c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 167801600242121270}
   m_SourcePrefab: {fileID: 100100000, guid: 4934799047c1f1d4da2d4c5376af1f6c, type: 3}
 --- !u!1 &5984639166735944031 stripped
 GameObject:
@@ -303,6 +306,22 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &167801600242121270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5984639166735944031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2e4af722eda88d41874c063b5c43edd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SeaShellOpenClose
+  minOpenTime: 2
+  maxOpenTime: 5
+  minClosedTime: 4
+  maxClosedTime: 10
 --- !u!4 &6360882787530036197 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 4934799047c1f1d4da2d4c5376af1f6c, type: 3}
