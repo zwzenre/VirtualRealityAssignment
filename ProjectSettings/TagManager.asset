@@ -9,6 +9,8 @@ TagManager:
   - StatusText
   - TensionUI
   - FishingRod
+  - LeftController
+  - RightController
   layers:
   - Default
   - TransparentFX
