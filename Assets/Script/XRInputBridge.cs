@@ -10,9 +10,12 @@ public class XRInputBridge : MonoBehaviour
 {
     public GameController gameController;
     public XRGrabInteractable rodGrab;
+    public FishFeeder fishFeeder;
+    public PauseMenu pauseMenu;
 
     public InputActionReference reelAction;
     public InputActionReference castAction;
+    public InputActionReference feedAction;
 
     bool isHoldingRod = false;
     bool isInitialized = false;
@@ -62,6 +65,12 @@ public class XRInputBridge : MonoBehaviour
             rodGrab.selectExited.AddListener(OnRelease);
         }
 
+        if(feedAction != null)
+        {
+            feedAction.action.Enable();
+            feedAction.action.performed += OnFeed;
+        }
+
         isInitialized = true;
     }
 
@@ -76,6 +85,11 @@ public class XRInputBridge : MonoBehaviour
         if (castAction != null)
         {
             castAction.action.performed -= OnCast;
+        }
+
+        if (feedAction != null)
+        {
+            feedAction.action.performed -= OnFeed;
         }
 
         if (rodGrab != null)
@@ -103,6 +117,17 @@ public class XRInputBridge : MonoBehaviour
         if (!isHoldingRod) return;
 
         gameController.OnCastPressed();
+    }
+
+    void OnFeed(InputAction.CallbackContext ctx)
+    {
+        if (!isInitialized || fishFeeder == null)
+            return;
+
+        if (pauseMenu != null && pauseMenu.activeWristUI)
+            return;
+
+        fishFeeder.SpawnFood();
     }
 
     void OnGrab(SelectEnterEventArgs args)
