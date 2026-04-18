@@ -42,6 +42,12 @@ public class FishFlocking : MonoBehaviour
     private Vector3 velocity;
     private float speed;
 
+    [Header("Food")]
+    public float foodDetectRadius = 5f;
+    public float foodAttractWeight = 3f;
+    public float eatDistance = 0.4f;
+
+
     void Start()
     {
         speed = Random.Range(minSpeed, maxSpeed);
@@ -81,14 +87,51 @@ public class FishFlocking : MonoBehaviour
         Vector3 boundary = GetBoundaryForce();
         Vector3 avoid = GetObstacleAvoidance();
 
+        FishFood targetFood = FishFoodManager.GetClosestFood(transform.position, foodDetectRadius);
+
+        Vector3 foodForce = Vector3.zero;
+        bool chasingFood = false;
+
+        if (targetFood != null)
+        {
+            Vector3 toFood = targetFood.transform.position - transform.position;
+            float dist = toFood.magnitude;
+
+            if (dist > 0.001f)
+            {
+                foodForce = toFood.normalized;
+                chasingFood = true;
+            }
+
+            if (dist <= eatDistance)
+            {
+                targetFood.Consume();
+            }
+        }
+
         // Keep some current heading so fish don't orbit in circles
-        Vector3 desiredDir =
-            velocity.normalized * 1.5f +
-            alignment * alignmentWeight +
-            cohesion * cohesionWeight +
-            separation * separationWeight +
-            boundary * boundaryWeight +
-            avoid * obstacleAvoidWeight;
+        Vector3 desiredDir;
+
+        if (chasingFood)
+        {
+            desiredDir =
+                velocity.normalized * 1.2f +
+                foodForce * foodAttractWeight +
+                separation * separationWeight +
+                boundary * boundaryWeight +
+                avoid * obstacleAvoidWeight;
+        }
+        else
+        {
+            desiredDir =
+                velocity.normalized * 1.5f +
+                alignment * alignmentWeight +
+                cohesion * cohesionWeight +
+                separation * separationWeight +
+                boundary * boundaryWeight +
+                avoid * obstacleAvoidWeight;
+        }
+
 
         if (desiredDir.sqrMagnitude < 0.001f)
             desiredDir = transform.forward;
