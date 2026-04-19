@@ -27,7 +27,6 @@ public class AudioManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject);
             sfxSource = GetComponent<AudioSource>();
         }
         else
