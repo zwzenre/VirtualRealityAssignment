@@ -93,7 +93,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: fb0967613481ef1448cd8d1180dc8e02, type: 2}
+  m_LightingDataAsset: {fileID: 112000000, guid: 7b0eee34d82b6a744ac0e81bddcf3c32, type: 2}
   m_LightingSettings: {fileID: 4890085278179872738, guid: ed35b064234cf5a4ab640ea7d4185762, type: 2}
 --- !u!196 &4
 NavMeshSettings:
@@ -267,6 +267,10 @@ PrefabInstance:
     - target: {fileID: 4848361082766901627, guid: d3bb480fb02e40347b1346310df6c4a3, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SetSFXVolume
+      objectReference: {fileID: 0}
+    - target: {fileID: 5878406970827939552, guid: d3bb480fb02e40347b1346310df6c4a3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7416458245246401853, guid: d3bb480fb02e40347b1346310df6c4a3, type: 3}
       propertyPath: rodGrab
@@ -750,13 +754,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 740329609}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 0, y: 200, z: 0}
+  m_LocalRotation: {x: -0.8650526, y: 0.118660845, z: 0.24288149, w: -0.42262536}
+  m_LocalPosition: {x: 0, y: 39.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: -222.341, y: 44.765, z: 33.744995}
 --- !u!114 &740329612
 MonoBehaviour:
   m_ObjectHideFlags: 0
