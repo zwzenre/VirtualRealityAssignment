@@ -13,6 +13,9 @@ public class GameController : MonoBehaviour
     public AudioClip castSound;
     public AudioClip biteSound;
     public AudioClip reelSound;
+    public AudioClip breakSound;
+    public AudioClip fishSound;
+    public AudioClip rewardSound;
 
     public XRBaseController leftController;
     public XRBaseController rightController;
@@ -110,6 +113,7 @@ public class GameController : MonoBehaviour
 
             if (breakTimer > 1f)
             {
+                audioSource.PlayOneShot(breakSound);
                 statusText.text = "Line broke!";
                 ResetFishing();
                 return;
@@ -123,6 +127,7 @@ public class GameController : MonoBehaviour
         if (Vector3.Distance(rod.rodTip.position, rod.GetHookPosition()) < 2.5f)
         {
             statusText.text = "Fish Caught!";
+            audioSource.PlayOneShot(rewardSound);
             FishData fish = rod.GetCurrentFishData();
             ResetFishing();
         }
@@ -167,6 +172,7 @@ public class GameController : MonoBehaviour
             rod.Reel();
             state = FishingState.Hooked;
             statusText.text = "Hooked! Reel now!";
+            audioSource.PlayOneShot(fishSound);
             FishData fish = rod.SpawnFish();
             breakTimer = 0f;
         }
