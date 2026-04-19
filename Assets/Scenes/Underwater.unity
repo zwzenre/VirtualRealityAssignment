@@ -9432,6 +9432,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7649585988518808014, guid: d3bb480fb02e40347b1346310df6c4a3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 77501666}
+    - targetCorrespondingSourceObject: {fileID: 1044644424909698696, guid: d3bb480fb02e40347b1346310df6c4a3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1672660843}
   m_SourcePrefab: {fileID: 100100000, guid: d3bb480fb02e40347b1346310df6c4a3, type: 3}
 --- !u!224 &1672660834 stripped
 RectTransform:
@@ -9453,6 +9456,71 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1440915320936928973, guid: d3bb480fb02e40347b1346310df6c4a3, type: 3}
   m_PrefabInstance: {fileID: 1672660833}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1672660838 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4848361082766901627, guid: d3bb480fb02e40347b1346310df6c4a3, type: 3}
+  m_PrefabInstance: {fileID: 1672660833}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Slider
+--- !u!114 &1672660839 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3102866718823139033, guid: d3bb480fb02e40347b1346310df6c4a3, type: 3}
+  m_PrefabInstance: {fileID: 1672660833}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Slider
+--- !u!114 &1672660840 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5930834305497147317, guid: d3bb480fb02e40347b1346310df6c4a3, type: 3}
+  m_PrefabInstance: {fileID: 1672660833}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9085046f02f69544eb97fd06b6048fe2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Toggle
+--- !u!114 &1672660841 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 610625455348796626, guid: d3bb480fb02e40347b1346310df6c4a3, type: 3}
+  m_PrefabInstance: {fileID: 1672660833}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9085046f02f69544eb97fd06b6048fe2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Toggle
+--- !u!1 &1672660842 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1044644424909698696, guid: d3bb480fb02e40347b1346310df6c4a3, type: 3}
+  m_PrefabInstance: {fileID: 1672660833}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1672660843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1672660842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c91d381498cb5cb4bb288d277e9ab529, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SettingsUI
+  snapToggle: {fileID: 1672660841}
+  continuousToggle: {fileID: 1672660840}
+  masterVolumeSlider: {fileID: 1672660839}
+  sfxVolumeSlider: {fileID: 1672660838}
 --- !u!1 &1675090003
 GameObject:
   m_ObjectHideFlags: 0
