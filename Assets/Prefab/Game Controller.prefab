@@ -48,11 +48,15 @@ MonoBehaviour:
   tensionUI: {fileID: 0}
   rod: {fileID: 0}
   statusText: {fileID: 0}
-  caughtFish: []
   audioSource: {fileID: 8230460231971184301}
   castSound: {fileID: 8300000, guid: f570781222cbc3649906dc5dae5efb4a, type: 3}
   biteSound: {fileID: 8300000, guid: 40115a8bad97a954884fbac7653f4c96, type: 3}
   reelSound: {fileID: 8300000, guid: f8489fe1ac078b04fb156c4dd0b7ad6b, type: 3}
+  breakSound: {fileID: 8300000, guid: 649c3d63644ef0046a95abd8f63af37e, type: 3}
+  fishSound: {fileID: 8300000, guid: 488d5416bd828e34286df97cda673b52, type: 3}
+  rewardSound: {fileID: 8300000, guid: 59becbb7bf42bf144aa03a7291e02734, type: 3}
+  leftController: {fileID: 0}
+  rightController: {fileID: 0}
 --- !u!82 &8230460231971184301
 AudioSource:
   m_ObjectHideFlags: 0
