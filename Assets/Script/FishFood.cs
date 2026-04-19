@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class FishFood : MonoBehaviour
 {
+    public AudioClip biteClip;
+    public float biteVolume = 1f;
+
     void OnEnable()
     {
         FishFoodManager.Register(this);
@@ -14,6 +17,11 @@ public class FishFood : MonoBehaviour
 
     public void Consume()
     {
-        gameObject.SetActive(false);
+        if (biteClip != null)
+        {
+            AudioSource.PlayClipAtPoint(biteClip, transform.position, biteVolume);
+        }
+
+        Destroy(gameObject);
     }
 }
