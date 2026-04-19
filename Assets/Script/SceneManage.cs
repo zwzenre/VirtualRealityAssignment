@@ -33,5 +33,9 @@ public class SceneManage : MonoBehaviour
         SceneManager.LoadScene("Tutorial");
     }
 
-    
+    public void QuitGame()
+    {
+        Debug.Log("Quit Game"); 
+        Application.Quit();     
+    }
 }
